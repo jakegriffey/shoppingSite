@@ -1,0 +1,56 @@
+@font-face {
+    font-family: Amaranth;
+    src: url("./Amaranth-Regular.otf");
+}
+
+@font-face {
+    font-family: Monterey;
+    src: url("./MontereyFLF.ttf")
+}
+
+.blackBG {
+    background-color: #000000;
+}
+
+.whiteText {
+    color: white;
+}
+
+.orangeBackground {
+    background-color: #ff9900;
+}
+
+.centered {
+    text-align: center;
+}
+
+.blue {
+    color: #146eb4;
+}
+
+.lightBlackBG {
+    background-color: #232f3e;
+}
+
+.lightGrayBG {
+    background-color: #f2f2f2;
+}
+
+.amaranth {
+    font-family: Amaranth;
+}
+
+.header {
+    font-size: 48px;
+}
+
+ul {
+    list-style-type: none;
+    font-family: Monterey;
+}
+
+.footer {
+    font-size: 12px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+}

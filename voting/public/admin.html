@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Shopping Admin</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="javascripts/admin.js"></script>
+    <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+    <meta charset="utf-8">
+</head>
+
+<body ng-app = "app" ng-controller = "administrationCtrl" ng-init = "getProducts()" class = "lightGrayBG">
+    <div class = "container-fluid lightBlackBG whiteText centered">
+         <h1 class = "amaranth header" style = "padding-top: 50px; padding-bottom: 25px;">Store Management Interface</h1>
+         <p class = "centered footer">Click <a href = "./shop.html" class = "blue">Here</a> to Shop</p>
+    </div>
+    
+    <div class = "container-fluid orangeBackground">
+        <form ng-submit = "addProduct()" class = "form-group" style = "padding-top: 25px;">
+            <label for="productName">Product Name:</label>
+            <input type="text" id="productName" ng-model = "productNameField" class = "form-control"/><br>
+            <label for = "productPrice">Price:</label>
+            <input type = "text" id = "productPrice" ng-model = "productPriceField" class = "form-control"/><br>
+            <label for = "productURL">Picture URL:</label>
+            <input type = "text" id = "productURL" ng-model = "productURLField" class = "form-control"/><br>
+            <button type = "submit" class = "btn btn-primary">Add Product</button>
+        </form>
+    </div>
+
+    
+    <div class = "container-fluid lightGrayBG" style = "padding-bottom: 25px;">
+        <h1 class = "amaranth centered">Current Products</h1>
+        <ul>
+            <li ng-repeat = "product in products | orderBy: 'Name'" class = "centered">
+                <span class="glyphicon glyphicon-remove" ng-click="deleteProduct(product)"></span>
+                {{product.Name}} - Price: ${{product.Price}} - Ordered: {{product.Orders}}
+                <img src={{product.Picture}} width = "300px"></img>
+            </li>
+        </ul>
+    </div>
+    
+    <div class = "footer whiteText centered lightBlackBG">
+        <p>Jacob Griffey - CS260 Midterm #2</p>
+    </div>
+    
+</body>
+
+</html>

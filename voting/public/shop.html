@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Shopping</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="javascripts/admin.js"></script>
+    <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+    <meta charset="utf-8">
+</head>
+
+<body ng-app="app" ng-controller="shopCtrl" ng-init="getProducts()" class="lightBlackBG">
+    <div class="container-fluid lightBlackBG whiteText" style="padding-top: 50px; padding-bottom: 25px;">
+        <h1 class="amaranth header centered">Shopping Interface</h1>
+        <p class = "centered footer">Click <a href = "./admin.html">Here</a> to Administrate</p>
+    </div>
+
+    <div class="container-fluid lightGrayBG" style="padding-top: 25px; padding-bottom:25px">
+        <h2 class="amaranth centered">Current Products</h2>
+        <ul>
+            <li ng-repeat="product in products | orderBy: 'Name'" class = "centered">
+                <input type="checkbox" ng-click="chooseProduct(product)">{{product.Name}} - Price: {{product.Price}}</input>
+                <img src={{product.Picture}} width="300px"></img>
+            </li>
+        </ul>
+        <button type="submit" class="btn btn-primary" ng-click="orderProducts()" ng-disabled="ordered">Submit Purchase</button>
+    </div>
+
+    <div class="container-fluid orangeBackground">
+        <h2 class="amaranth centered">Shopping Cart</h2>
+        <ul class>
+            <li ng-repeat="product in orderedProducts | orderBy: 'Name'" class = "centered">
+                {{product.Name}} - Price: {{product.Price}}
+                <img src={{product.Picture}} width="300px"></img>
+            </li>
+        </ul>
+    </div>
+    
+    <div class = "footer lightBlackBG whiteText centered">
+        <p>Jacob Griffy CS260 Midterm #2</p>
+    </div>
+    
+
+</body>
+
+</html>
